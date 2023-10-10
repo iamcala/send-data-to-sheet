@@ -46,7 +46,7 @@ const Upload = () => {
                     url_image
                 ]];
     
-                fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1", {
+                fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
                     method: "POST",
                     mode: "cors",
                     headers: {

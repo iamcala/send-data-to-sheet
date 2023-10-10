@@ -64,7 +64,7 @@ const ConfirmComponent = () => {
                 firstCode.first_code,
             ]];
 
-            fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1", {
+            fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
                 method: "POST",
                 mode: "cors",
                 headers: {
@@ -96,7 +96,7 @@ const ConfirmComponent = () => {
                 values.fill_code,
             ]];
 
-            fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1", {
+            fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
                 method: "POST",
                 mode: "cors",
                 headers: {

