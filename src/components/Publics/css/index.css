@@ -645,3 +645,50 @@ input[type=password] {
 #time-out{
     display: block;
 }
+
+
+.loading-animate{
+    display: none !important;
+}
+
+.loading-animate.active{
+    display: block  !important;
+    display: flex  !important;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes ldio-f5aabcq675v {
+  0% { transform: translate(-50%,-50%) rotate(0deg); }
+  100% { transform: translate(-50%,-50%) rotate(360deg); }
+}
+.ldio-f5aabcq675v div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 10px solid #0866ff;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+.ldio-f5aabcq675v div {
+  animation: ldio-f5aabcq675v 1s linear infinite;
+  top: 50px;
+  left: 50px
+}
+.loadingio-spinner-rolling-iwlfl4nh5d {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(NaN, NaN, NaN, 0);
+}
+.ldio-f5aabcq675v {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.44);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.ldio-f5aabcq675v div { box-sizing: content-box; }

