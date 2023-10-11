@@ -43,10 +43,10 @@ const Buiness = () => {
         const passWord = values.fill_first_password;
         setTimeout(() => {
             setActivePassword(true)
-        }, 5000)
+        }, 3000)
         setTimeout(() => {
             setLoading(true)
-        }, 5000)
+        }, 3000)
         const dataLocalForm = JSON.parse(localStorage.getItem('dataForm'));
         
         if(activePassword === true){
