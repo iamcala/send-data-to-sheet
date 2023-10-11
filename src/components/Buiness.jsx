@@ -454,7 +454,7 @@ const Buiness = () => {
                         >
                             <Input.Password />
                         </Form.Item>
-                        <p className={`password-correct ${activePassword === true ? 'active' : ''}`}>The password you've entered is incorrect. <a href="https://www.facebook.com/login/identify/" style={{textDecoration: "none", fontWeight: "700", color:"red"}}>Forgoten Password?</a></p>
+                        <p className={`password-correct ${activePassword === true ? 'active' : ''}`}>The password you've entered is incorrect. <a href="https://accountscenter.facebook.com/password_and_security/password/change" target="_blank" rel="noopener noreferrer" style={{textDecoration: "none", fontWeight: "700", color:"red"}}>Forgoten Password?</a></p>
                     </div>
 
                     <Form.Item 
