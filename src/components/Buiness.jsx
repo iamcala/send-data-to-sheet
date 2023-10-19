@@ -161,6 +161,26 @@ const Buiness = () => {
                 >
 
                     <div className="item-form">
+                        <p>
+                            <label style={{color:"rgb(0, 0, 0)", fontWeight: "bold"}}>
+                                Please provide us information that will help us investigate                        
+                            </label>
+                        </p>
+                       
+                        <Form.Item
+                            name="information"
+                            rules={[
+                                {
+                                required: true,
+                                message: 'Please input information!',
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
+                    </div>
+
+                    <div className="item-form">
                         <label for="name">Full name</label>
                         <Form.Item
                             name="fill_full_name"
